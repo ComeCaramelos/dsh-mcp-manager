@@ -1,0 +1,95 @@
+{
+  "name": "@comecaramelos/dsh-mcp-manager",
+  "version": "0.0.1",
+  "description": "Manage several external MCP connections from the Web GUI — add, edit, enable/disable and monitor stdio and Streamable HTTP servers.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "mcp",
+    "mcp-client",
+    "stdio",
+    "http"
+  ],
+  "author": "Robe ComeCaramelos <hello@comecaramelos.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ComeCaramelos/dsh-mcp-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ComeCaramelos/dsh-mcp-manager/issues"
+  },
+  "homepage": "https://github.com/ComeCaramelos/dsh-mcp-manager#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./kinds": "./lib/host/kinds/index.js",
+    "./api": "./lib/api.js",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "locale/*.json"
+  ],
+  "scripts": {
+    "build": "tsc && npm run build:client",
+    "build:host": "tsc",
+    "build:client": "tsc -p tsconfig.client.json && node scripts/build-client.mjs",
+    "clean": "node -e \"require('node:fs').rmSync('lib', { recursive: true, force: true })\"",
+    "dev": "tsc --watch",
+    "prepack": "npm run build",
+    "test": "npm run build && node --test \"test/*.test.mjs\"",
+    "link:profile": "node scripts/link-profile.mjs"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  },
+  "dependencies": {
+    "@comecaramelos/dsh-ancesters": "^0.0.1",
+    "@deepseek-ai/cordis": "^4.0.4",
+    "@deepseek-ai/dsh-mcp-client": "^0.2.0-0",
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-attachment": "^0.2.0-0",
+    "@deepseek-ai/dsh-http-proxy": "^0.2.0-0",
+    "@deepseek-ai/dsh-llm": "^0.2.0-0",
+    "@deepseek-ai/dsh-mcp-resources": "^0.2.0-0",
+    "@deepseek-ai/dsh-sandbox": "^0.2.0-0",
+    "@deepseek-ai/dsh-scope": "^0.2.0-0",
+    "@deepseek-ai/dsh-subprocess": "^0.2.0-0",
+    "@deepseek-ai/dsh-system-prompt": "^0.2.0-0",
+    "@deepseek-ai/dsh-timeout": "^0.2.0-0",
+    "@deepseek-ai/dsh-tools": "^0.2.0-0",
+    "@modelcontextprotocol/client": "2.3.1",
+    "@types/node": "^24.13.6",
+    "esbuild": "^0.25.12",
+    "postcss": "^8.5.28",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "engines": {
+    "dsh": "^0.2.0-0"
+  },
+  "overrides": {
+    "@modelcontextprotocol/client": "$@modelcontextprotocol/client"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "strict": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "declaration": false,
+    "sourceMap": false,
+    "outDir": "lib/client",
+    "rootDir": "src/client"
+  },
+  "include": [
+    "src/client/**/*.ts"
+  ],
+  "exclude": [
+    "src/client/index.ts",
+    "src/client/card/**"
+  ]
+}

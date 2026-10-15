@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "MCP 连接",
+    "description": "添加、编辑、启用并监控此配置文件连接的 MCP 服务器 —— stdio、Streamable HTTP 以及组件注册的类型。"
+  }
+}

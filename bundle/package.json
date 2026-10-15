@@ -1,0 +1,54 @@
+{
+  "name": "@comecaramelos/dsh-mcp-manager-bundle",
+  "version": "0.0.1",
+  "description": "Bundle of the MCP connections manager — the plugin manager's entry point, standing on @comecaramelos/dsh-mcp-manager.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "mcp",
+    "mcp-client",
+    "stdio",
+    "http"
+  ],
+  "author": "Robe ComeCaramelos <hello@comecaramelos.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ComeCaramelos/dsh-mcp-manager.git",
+    "directory": "bundle"
+  },
+  "bugs": {
+    "url": "https://github.com/ComeCaramelos/dsh-mcp-manager/issues"
+  },
+  "homepage": "https://github.com/ComeCaramelos/dsh-mcp-manager#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@comecaramelos/dsh-mcp-manager": "^0.0.1",
+    "@comecaramelos/dsh-chrome-mcp": "^2.0.0",
+    "@comecaramelos/dsh-docker-desktop-mcp": "^0.1.0"
+  },
+  "engines": {
+    "dsh": "^0.2.0-0"
+  }
+}

@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build output (generated from src/*.ts by `npm run build`; never hand-edit)
+lib/
+dist/
+
+# npm cache (workspace-local)
+.npm-cache/
+
+# Local harness state used by dev, live probes and installs
+.chrome
+.probe/
+.smoke/
+.scratch/
+.gui/
+_reference/
+# Specs, plans and reviews stay local; only docs/knowledge is versioned
+docs/*
+!docs/knowledge/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+*Zone.Identifier
+
+# Editor
+.idea/
+.vscode/*
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Browser-side profile linked in by a live GUI check
+.chrome/

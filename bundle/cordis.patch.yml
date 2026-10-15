@@ -1,0 +1,33 @@
+# @comecaramelos/dsh-mcp-manager-bundle — bundle patch.
+#
+# The bundle contributes rows: the plugin packages it stands on. They are what
+# the plugin manager reads its `Components` list off, so the rows it inserts are
+# *plugins*, never the bundle itself — a bundle that inserts a row named after
+# its own package shows up twice in its own page: once as the entry, once as a
+# component that repeats the same switch (`test/bundle.test.mjs` pins it).
+#
+# The `mcp-manager` row is enough for any number of servers: `servers` is the
+# single list the Web card edits and the controller folds into live bridges, so
+# the per-connection identity lives inside the entries, not in per-row ids.
+#
+# `mcp-chrome` ships the Windows Chrome bridge as a component of this bundle
+# (see `docs/knowledge/migracion.md`): the row id is kept, but
+# installing this bundle is what installs the component — the chrome package
+# stands no bundle of its own.
+#
+# `mcp-docker` rides the same rule: the row id is kept, the component registers
+# its `docker-profile` kind through the manager's `mcpConnections` service, and
+# installing this bundle is what installs it.
+- insert:
+    - id: mcp-manager
+      name: '@comecaramelos/dsh-mcp-manager'
+      config:
+        servers: []
+    - id: mcp-chrome
+      name: '@comecaramelos/dsh-chrome-mcp'
+      config:
+        serverName: chrome
+    - id: mcp-docker
+      name: '@comecaramelos/dsh-docker-desktop-mcp'
+      config:
+        serverName: docker

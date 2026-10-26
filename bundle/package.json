@@ -46,7 +46,7 @@
   "dependencies": {
     "@comecaramelos/dsh-mcp-manager": "^0.0.1",
     "@comecaramelos/dsh-chrome-mcp": "^2.0.0",
-    "@comecaramelos/dsh-docker-desktop-mcp": "^0.1.0"
+    "@comecaramelos/dsh-docker-desktop-mcp": "^1.0.0"
   },
   "engines": {
     "dsh": "^0.2.0-0"
